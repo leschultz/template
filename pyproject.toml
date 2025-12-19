@@ -1,0 +1,24 @@
+[project]
+name = "project"
+version = "0.1.0"
+description = "A modern Python project managed with uv."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+project = "project:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/project"]
+force-include = { "examples" = "examples" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
